@@ -1,0 +1,40 @@
+{
+  "realm": "myrealm",
+  "enabled": true,
+  "userFederationProviders": [
+    {
+      "id": "ldap1-provider",
+      "displayName": "LDAP 1",
+      "providerName": "ldap",
+      "config": {
+        "priority": "0",
+        "connectionUrl": "ldap://ldap1:389",
+        "editMode": "READ_ONLY",
+        "usersDn": "ou=users,dc=org1,dc=local",
+        "bindDn": "cn=admin,dc=org1,dc=local",
+        "bindCredential": "admin",
+        "usernameLDAPAttribute": "uid",
+        "rdnLDAPAttribute": "cn",
+        "uuidLDAPAttribute": "entryUUID",
+        "userObjectClasses": "inetOrgPerson"
+      }
+    },
+    {
+      "id": "ldap2-provider",
+      "displayName": "LDAP 2",
+      "providerName": "ldap",
+      "config": {
+        "priority": "1",
+        "connectionUrl": "ldap://ldap2:389",
+        "editMode": "READ_ONLY",
+        "usersDn": "ou=users,dc=org2,dc=local",
+        "bindDn": "cn=admin,dc=org2,dc=local",
+        "bindCredential": "admin",
+        "usernameLDAPAttribute": "uid",
+        "rdnLDAPAttribute": "cn",
+        "uuidLDAPAttribute": "entryUUID",
+        "userObjectClasses": "inetOrgPerson"
+      }
+    }
+  ]
+}

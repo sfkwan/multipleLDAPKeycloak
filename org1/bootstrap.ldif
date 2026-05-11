@@ -1,0 +1,38 @@
+dn: ou=users,dc=org1,dc=local
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=org1,dc=local
+objectClass: organizationalUnit
+ou: groups
+
+dn: uid=dikwan,ou=users,dc=org1,dc=local
+objectClass: inetOrgPerson
+uid: dikwan
+sn: Kwan
+givenName: Dick
+cn: Dick Kwan
+displayName: Dick Kwan
+mail: dikwan@example.org
+userPassword: admin
+
+dn: uid=zochen,ou=users,dc=org1,dc=local
+objectClass: inetOrgPerson
+uid: zochen
+sn: Chen
+givenName: Zoe
+cn: Zoe Chen
+displayName: Zoe Chen
+mail: zochen@example.org
+userPassword: admin
+
+dn: cn=developers,ou=groups,dc=org1,dc=local
+objectClass: groupOfNames
+cn: developers
+member: uid=dikwan,ou=users,dc=org1,dc=local
+member: uid=zochen,ou=users,dc=org1,dc=local
+
+dn: cn=admins,ou=groups,dc=org1,dc=local
+objectClass: groupOfNames
+cn: admins
+member: uid=dikwan,ou=users,dc=org1,dc=local
