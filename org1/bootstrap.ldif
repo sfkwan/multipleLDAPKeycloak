@@ -15,6 +15,8 @@ cn: Dick Kwan
 displayName: Dick Kwan
 mail: dikwan@example.org
 userPassword: admin
+mobile: 90457683
+departmentNumber: IT
 
 dn: uid=zochen,ou=users,dc=org1,dc=local
 objectClass: inetOrgPerson
@@ -25,6 +27,8 @@ cn: Zoe Chen
 displayName: Zoe Chen
 mail: zochen@example.org
 userPassword: admin
+mobile: 90457684
+departmentNumber: FA
 
 dn: cn=developers,ou=groups,dc=org1,dc=local
 objectClass: groupOfNames

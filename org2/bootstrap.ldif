@@ -16,6 +16,7 @@ displayName: Dave Chen
 mail: dachen@example.org
 userPassword: admin
 
+
 dn: cn=developers,ou=groups,dc=org2,dc=local
 objectClass: groupOfNames
 cn: developers
