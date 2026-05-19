@@ -5,11 +5,13 @@ This project sets up Keycloak with multiple LDAP sources and a pre-configured OA
 ## Quick Start
 
 ### 1. Start the Services
+
 ```bash
 docker-compose up -d
 ```
 
 This starts:
+
 - **Keycloak** (http://localhost:8080)
 - **LDAP 1** (org1.local) with users: dikwan, zochen
 - **LDAP 2** (org2.local) with users: dachen
@@ -17,11 +19,11 @@ This starts:
 
 ### 2. Access Services
 
-| Service | URL | Credentials |
-|---------|-----|-------------|
-| **Keycloak Admin Console** | http://localhost:8080 | admin / admin |
-| **LDAP phpAdmin** | http://localhost:389 | See docker-compose.yml |
-| **Keycloak Realm** | myrealm | Pre-configured with LDAP federation |
+| Service                    | URL                   | Credentials                         |
+| -------------------------- | --------------------- | ----------------------------------- |
+| **Keycloak Admin Console** | http://localhost:8080 | admin / admin                       |
+| **LDAP phpAdmin**          | http://localhost:389  | See docker-compose.yml              |
+| **Keycloak Realm**         | myrealm               | Pre-configured with LDAP federation |
 
 ## Authorization Code Flow Setup
 
@@ -62,15 +64,18 @@ GET http://localhost:8080/realms/myrealm/protocol/openid-connect/auth?
 ```
 
 **Or use a direct link:**
+
 ```
 http://localhost:8080/realms/myrealm/protocol/openid-connect/auth?client_id=my-app&response_type=code&redirect_uri=http://localhost:3000/callback&scope=openid%20profile%20email%20phone&state=abc123
 ```
 
 **Login with:**
+
 - Username: `dikwan` (or `zochen`, `dachen`)
 - Password: `admin`
 
 After successful login, you'll be redirected with an authorization code:
+
 ```
 http://localhost:3000/callback?code=<AUTHORIZATION_CODE>&state=abc123
 ```
@@ -90,6 +95,7 @@ curl -X POST http://localhost:8080/realms/myrealm/protocol/openid-connect/token 
 ```
 
 **Response:**
+
 ```json
 {
   "access_token": "eyJhbGc...",
@@ -111,6 +117,7 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
 ```
 
 **Response:**
+
 ```json
 {
   "sub": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
@@ -126,10 +133,12 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
 ## Available Users
 
 ### Organization 1 (LDAP 1)
+
 - **dikwan** (Dick Kwan) - admin, developer
 - **zochen** (Zoe Chen) - developer
 
 ### Organization 2 (LDAP 2)
+
 - **dachen** (Dave Chen) - developer
 
 **Default Password:** `admin`
@@ -137,12 +146,14 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
 ## LDAP Bootstrap Files
 
 Users are automatically created from:
+
 - `./org1/bootstrap.ldif` - Users and groups for org1.local
 - `./org2/bootstrap.ldif` - Users and groups for org2.local
 
 ## Keycloak Realm Configuration
 
 `./realm-export/myrealm.json` contains:
+
 - Realm settings (token lifespans, password policy)
 - LDAP federation providers for org1 and org2
 - OAuth2/OIDC client configuration with Authorization Code Flow enabled
@@ -154,7 +165,6 @@ Users are automatically created from:
 
 1. **Change the client secret:**
    - Admin Console → Clients → my-app → Credentials → Regenerate
-   
 2. **Update redirect URIs:**
    - Replace `http://localhost:3000` with your actual application URL
 
@@ -170,19 +180,23 @@ Users are automatically created from:
 ## Troubleshooting
 
 **User not logging in?**
+
 - Check LDAP connectivity in Keycloak Admin Console
 - Verify user exists in bootstrap.ldif files
 - Check user is in correct OU (ou=users)
 
 **Invalid redirect_uri error?**
+
 - Ensure redirect URI matches exactly in Client configuration
 - URIs are case-sensitive and must include protocol and path
 
 **Token validation fails?**
+
 - Verify client secret matches in token request
 - Check token hasn't expired (default 5 minutes)
 - Validate JWT signature using JWKS endpoint
 
 **LDAP errors?**
+
 - Verify container networking: `docker network ls`
 - Test LDAP with: `docker exec ldap01 ldapsearch -x -H ldap:// -D cn=admin,dc=org1,dc=local -w admin -b dc=org1,dc=local`
