@@ -58,6 +58,138 @@
       }
     }
   ],
+  "userFederationMappers": [
+    {
+      "id": "ldap1-username-mapper",
+      "name": "username",
+      "federationProviderDisplayName": "LDAP 1",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "uid",
+        "is.mandatory.in.ldap": "true",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "username",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap1-firstname-mapper",
+      "name": "first name",
+      "federationProviderDisplayName": "LDAP 1",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "givenName",
+        "is.mandatory.in.ldap": "true",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "firstName",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap1-lastname-mapper",
+      "name": "last name",
+      "federationProviderDisplayName": "LDAP 1",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "sn",
+        "is.mandatory.in.ldap": "true",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "lastName",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap1-email-mapper",
+      "name": "email",
+      "federationProviderDisplayName": "LDAP 1",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "mail",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "email",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap1-mobile-mapper",
+      "name": "mobile",
+      "federationProviderDisplayName": "LDAP 1",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "mobile",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "phoneNumber",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap2-username-mapper",
+      "name": "username",
+      "federationProviderDisplayName": "LDAP 2",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "uid",
+        "is.mandatory.in.ldap": "true",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "username",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap2-firstname-mapper",
+      "name": "first name",
+      "federationProviderDisplayName": "LDAP 2",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "givenName",
+        "is.mandatory.in.ldap": "true",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "firstName",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap2-lastname-mapper",
+      "name": "last name",
+      "federationProviderDisplayName": "LDAP 2",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "sn",
+        "is.mandatory.in.ldap": "true",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "lastName",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap2-email-mapper",
+      "name": "email",
+      "federationProviderDisplayName": "LDAP 2",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "mail",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "email",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap2-mobile-mapper",
+      "name": "mobile",
+      "federationProviderDisplayName": "LDAP 2",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "mobile",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "phoneNumber",
+        "read.only": "true"
+      }
+    }
+  ],
   "clients": [
     {
       "clientId": "my-app",

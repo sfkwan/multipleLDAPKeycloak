@@ -34,6 +34,8 @@ The realm is pre-configured with an OAuth2/OpenID Connect client named **`my-app
 **Protocol:** OpenID Connect  
 **Flow:** Authorization Code Flow (industry standard, most secure)
 
+This setup includes a custom `mobile` claim mapped from LDAP, and the authorization request examples below include the `phone` scope.
+
 ### OAuth2/OIDC Endpoints
 
 Replace `{host}` with your Keycloak URL (e.g., `http://localhost:8080`):
@@ -55,13 +57,13 @@ GET http://localhost:8080/realms/myrealm/protocol/openid-connect/auth?
   client_id=my-app
   &response_type=code
   &redirect_uri=http://localhost:3000/callback
-  &scope=openid%20profile%20email
+  &scope=openid%20profile%20email%20phone
   &state=abc123
 ```
 
 **Or use a direct link:**
 ```
-http://localhost:8080/realms/myrealm/protocol/openid-connect/auth?client_id=my-app&response_type=code&redirect_uri=http://localhost:3000/callback&scope=openid%20profile%20email&state=abc123
+http://localhost:8080/realms/myrealm/protocol/openid-connect/auth?client_id=my-app&response_type=code&redirect_uri=http://localhost:3000/callback&scope=openid%20profile%20email%20phone&state=abc123
 ```
 
 **Login with:**
@@ -95,7 +97,7 @@ curl -X POST http://localhost:8080/realms/myrealm/protocol/openid-connect/token 
   "refresh_token": "eyJhbGc...",
   "token_type": "Bearer",
   "id_token": "eyJhbGc...",
-  "scope": "openid profile email"
+  "scope": "openid profile email phone"
 }
 ```
 
@@ -116,7 +118,8 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
   "preferred_username": "dikwan",
   "given_name": "Dick",
   "family_name": "Kwan",
-  "email": "dikwan@example.org"
+  "email": "dikwan@example.org",
+  "mobile": "90457683"
 }
 ```
 
