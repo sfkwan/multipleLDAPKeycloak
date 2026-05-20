@@ -19,11 +19,11 @@ This starts:
 
 ### 2. Access Services
 
-| Service                    | URL                   | Credentials                         |
-| -------------------------- | --------------------- | ----------------------------------- |
-| **Keycloak Admin Console** | http://localhost:8080 | admin / admin                       |
-| **LDAP phpAdmin**          | https://localhost:6443  | See docker-compose.yml              |
-| **Keycloak Realm**         | myrealm               | Pre-configured with LDAP federation |
+| Service                    | URL                    | Credentials                         |
+| -------------------------- | ---------------------- | ----------------------------------- |
+| **Keycloak Admin Console** | http://localhost:8080  | admin / admin                       |
+| **LDAP phpAdmin**          | https://localhost:6443 | See docker-compose.yml              |
+| **Keycloak Realm**         | myrealm                | Pre-configured with LDAP federation |
 
 ## Authorization Code Flow Setup
 
