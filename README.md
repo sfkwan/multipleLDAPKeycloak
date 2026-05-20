@@ -13,8 +13,8 @@ docker-compose up -d
 This starts:
 
 - **Keycloak** (http://localhost:8080)
-- **LDAP 1** (org1.local) with users: dikwan, zochen
-- **LDAP 2** (org2.local) with users: dachen
+- **LDAP HK** (org1.local) with users: dikwan, zochen
+- **LDAP China** (org2.local) with users: dachen
 - **phpLDAPadmin** (LDAP management UI)
 
 ### 2. Access Services
@@ -22,7 +22,7 @@ This starts:
 | Service                    | URL                   | Credentials                         |
 | -------------------------- | --------------------- | ----------------------------------- |
 | **Keycloak Admin Console** | http://localhost:8080 | admin / admin                       |
-| **LDAP phpAdmin**          | http://localhost:389  | See docker-compose.yml              |
+| **LDAP phpAdmin**          | https://localhost:6443  | See docker-compose.yml              |
 | **Keycloak Realm**         | myrealm               | Pre-configured with LDAP federation |
 
 ## Authorization Code Flow Setup
@@ -36,7 +36,7 @@ The realm is pre-configured with an OAuth2/OpenID Connect client named **`my-app
 **Protocol:** OpenID Connect  
 **Flow:** Authorization Code Flow (industry standard, most secure)
 
-This setup includes a custom `mobile` claim mapped from LDAP, and the authorization request examples below include the `phone` scope.
+This setup maps LDAP `mobile` attributes to the Keycloak user attribute `phoneNumber` for both LDAP providers, and the authorization request examples below include the `phone` scope.
 
 ### OAuth2/OIDC Endpoints
 
@@ -126,18 +126,18 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
   "given_name": "Dick",
   "family_name": "Kwan",
   "email": "dikwan@example.org",
-  "mobile": "90457683"
+  "phone_number": "90457683"
 }
 ```
 
 ## Available Users
 
-### Organization 1 (LDAP 1)
+### Organization 1 (LDAP HK)
 
 - **dikwan** (Dick Kwan) - admin, developer
 - **zochen** (Zoe Chen) - developer
 
-### Organization 2 (LDAP 2)
+### Organization 2 (LDAP China)
 
 - **dachen** (Dave Chen) - developer
 
@@ -155,9 +155,10 @@ Users are automatically created from:
 `./realm-export/myrealm.json` contains:
 
 - Realm settings (token lifespans, password policy)
-- LDAP federation providers for org1 and org2
+- LDAP federation providers: HK and China
+- LDAP federation mappers for username, firstName, lastName, email, and mobile (`mobile` -> `phoneNumber`)
 - OAuth2/OIDC client configuration with Authorization Code Flow enabled
-- Protocol mappers for user claims
+- Authorization request examples include the `phone` scope
 
 ## Production Configuration
 

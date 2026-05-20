@@ -24,12 +24,12 @@
   "passwordPolicy": "length(8) and specialChars(1) and upperCase(1) and digits(1) and notUsername(undefined)",
   "userFederationProviders": [
     {
-      "id": "ldap1-provider",
-      "displayName": "LDAP 1",
+      "id": "ldap-hk-provider",
+      "displayName": "HK",
       "providerName": "ldap",
       "config": {
         "priority": "0",
-        "connectionUrl": "ldap://ldap1:389",
+        "connectionUrl": "ldap://ldap-hk:389",
         "editMode": "READ_ONLY",
         "usersDn": "ou=users,dc=org1,dc=local",
         "bindDn": "cn=admin,dc=org1,dc=local",
@@ -41,12 +41,12 @@
       }
     },
     {
-      "id": "ldap2-provider",
-      "displayName": "LDAP 2",
+      "id": "ldap-china-provider",
+      "displayName": "China",
       "providerName": "ldap",
       "config": {
         "priority": "1",
-        "connectionUrl": "ldap://ldap2:389",
+        "connectionUrl": "ldap://ldap-china:389",
         "editMode": "READ_ONLY",
         "usersDn": "ou=users,dc=org2,dc=local",
         "bindDn": "cn=admin,dc=org2,dc=local",
@@ -60,9 +60,9 @@
   ],
   "userFederationMappers": [
     {
-      "id": "ldap1-username-mapper",
+      "id": "ldap-hk-username-mapper",
       "name": "username",
-      "federationProviderDisplayName": "LDAP 1",
+      "federationProviderDisplayName": "HK",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "uid",
@@ -73,9 +73,9 @@
       }
     },
     {
-      "id": "ldap1-firstname-mapper",
+      "id": "ldap-hk-firstname-mapper",
       "name": "first name",
-      "federationProviderDisplayName": "LDAP 1",
+      "federationProviderDisplayName": "HK",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "givenName",
@@ -86,9 +86,9 @@
       }
     },
     {
-      "id": "ldap1-lastname-mapper",
+      "id": "ldap-hk-lastname-mapper",
       "name": "last name",
-      "federationProviderDisplayName": "LDAP 1",
+      "federationProviderDisplayName": "HK",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "sn",
@@ -99,9 +99,9 @@
       }
     },
     {
-      "id": "ldap1-email-mapper",
+      "id": "ldap-hk-email-mapper",
       "name": "email",
-      "federationProviderDisplayName": "LDAP 1",
+      "federationProviderDisplayName": "HK",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "mail",
@@ -112,9 +112,9 @@
       }
     },
     {
-      "id": "ldap1-mobile-mapper",
+      "id": "ldap-hk-mobile-mapper",
       "name": "mobile",
-      "federationProviderDisplayName": "LDAP 1",
+      "federationProviderDisplayName": "HK",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "mobile",
@@ -125,9 +125,9 @@
       }
     },
     {
-      "id": "ldap2-username-mapper",
+      "id": "ldap-china-username-mapper",
       "name": "username",
-      "federationProviderDisplayName": "LDAP 2",
+      "federationProviderDisplayName": "China",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "uid",
@@ -138,9 +138,9 @@
       }
     },
     {
-      "id": "ldap2-firstname-mapper",
+      "id": "ldap-china-firstname-mapper",
       "name": "first name",
-      "federationProviderDisplayName": "LDAP 2",
+      "federationProviderDisplayName": "China",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "givenName",
@@ -151,9 +151,9 @@
       }
     },
     {
-      "id": "ldap2-lastname-mapper",
+      "id": "ldap-china-lastname-mapper",
       "name": "last name",
-      "federationProviderDisplayName": "LDAP 2",
+      "federationProviderDisplayName": "China",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "sn",
@@ -164,9 +164,9 @@
       }
     },
     {
-      "id": "ldap2-email-mapper",
+      "id": "ldap-china-email-mapper",
       "name": "email",
-      "federationProviderDisplayName": "LDAP 2",
+      "federationProviderDisplayName": "China",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "mail",
@@ -177,9 +177,9 @@
       }
     },
     {
-      "id": "ldap2-mobile-mapper",
+      "id": "ldap-china-mobile-mapper",
       "name": "mobile",
-      "federationProviderDisplayName": "LDAP 2",
+      "federationProviderDisplayName": "China",
       "federationMapperType": "user-attribute-ldap-mapper",
       "config": {
         "ldap.attribute": "mobile",
