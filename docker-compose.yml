@@ -47,7 +47,7 @@ services:
     image: osixia/phpldapadmin:latest
     container_name: phpldapadmin
     environment:
-      PHPLDAPADMIN_LDAP_HOSTS: "#PYTHON2BASH:[{'ldap1': [{'server': [{'tls': False}]}, {'login': [{'bind_id': 'cn=admin,dc=org1,dc=local'}, {'bind_pass': 'admin'}]}]}, {'ldap2': [{'server': [{'tls': False}]}, {'login': [{'bind_id': 'cn=admin,dc=org2,dc=local'}, {'bind_pass': 'admin'}]}]}]"
+      PHPLDAPADMIN_LDAP_HOSTS: "#PYTHON2BASH:[{'ldap-hk': [{'server': [{'tls': False}]}, {'login': [{'bind_id': 'cn=admin,dc=org1,dc=local'}, {'bind_pass': 'admin'}]}]}, {'ldap-china': [{'server': [{'tls': False}]}, {'login': [{'bind_id': 'cn=admin,dc=org2,dc=local'}, {'bind_pass': 'admin'}]}]}]"
     ports:
       - "6443:443"
     depends_on:
