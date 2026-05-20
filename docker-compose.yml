@@ -20,7 +20,7 @@ services:
   ldap-hk:
     image: osixia/openldap:latest
     command: ["--copy-service"]
-    container_name: ldap01
+    container_name: ldap-hk
     environment:
       LDAP_ORGANISATION: "Org1"
       LDAP_DOMAIN: "org1.local"
@@ -33,7 +33,7 @@ services:
   ldap-china:
     image: osixia/openldap:latest
     command: ["--copy-service"]
-    container_name: ldap02
+    container_name: ldap-china
     environment:
       LDAP_ORGANISATION: "Org2"
       LDAP_DOMAIN: "org2.local"

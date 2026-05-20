@@ -36,7 +36,13 @@ The realm is pre-configured with an OAuth2/OpenID Connect client named **`my-app
 **Protocol:** OpenID Connect  
 **Flow:** Authorization Code Flow (industry standard, most secure)
 
-This setup maps LDAP `mobile` attributes to the Keycloak user attribute `phoneNumber` for both LDAP providers, and the authorization request examples below include the `phone` scope.
+This setup maps LDAP attributes for both providers as follows:
+
+- `mobile` -> `phoneNumber`
+- `street` -> `street`
+- `postalCode` -> `postal_code`
+
+The authorization request examples below include the `phone` scope for phone-related claims.
 
 ### OAuth2/OIDC Endpoints
 
@@ -156,7 +162,8 @@ Users are automatically created from:
 
 - Realm settings (token lifespans, password policy)
 - LDAP federation providers: HK and China
-- LDAP federation mappers for username, firstName, lastName, email, and mobile (`mobile` -> `phoneNumber`)
+- LDAP federation mappers for username, firstName, lastName, email, mobile, street, and postal code
+- Custom mapper details: `mobile` -> `phoneNumber`, `street` -> `street`, `postalCode` -> `postal_code`
 - OAuth2/OIDC client configuration with Authorization Code Flow enabled
 - Authorization request examples include the `phone` scope
 
@@ -201,3 +208,4 @@ Users are automatically created from:
 
 - Verify container networking: `docker network ls`
 - Test LDAP with: `docker exec ldap01 ldapsearch -x -H ldap:// -D cn=admin,dc=org1,dc=local -w admin -b dc=org1,dc=local`
+- Do not add `objectClass: country` to user entries (`inetOrgPerson`); `country` is a structural object class for country entries (for example `c=HK,...`) and will cause bootstrap import failures when combined on a person record.

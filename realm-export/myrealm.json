@@ -125,6 +125,32 @@
       }
     },
     {
+      "id": "ldap-hk-street-mapper",
+      "name": "street",
+      "federationProviderDisplayName": "HK",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "street",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "street",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap-hk-postalcode-mapper",
+      "name": "postal_code",
+      "federationProviderDisplayName": "HK",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "postalCode",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "postal_code",
+        "read.only": "true"
+      }
+    },
+    {
       "id": "ldap-china-username-mapper",
       "name": "username",
       "federationProviderDisplayName": "China",
@@ -186,6 +212,32 @@
         "is.mandatory.in.ldap": "false",
         "always.read.value.from.ldap": "true",
         "user.model.attribute": "phoneNumber",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap-china-street-mapper",
+      "name": "street",
+      "federationProviderDisplayName": "China",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "street",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "street",
+        "read.only": "true"
+      }
+    },
+    {
+      "id": "ldap-china-postalcode-mapper",
+      "name": "postal_code",
+      "federationProviderDisplayName": "China",
+      "federationMapperType": "user-attribute-ldap-mapper",
+      "config": {
+        "ldap.attribute": "postalCode",
+        "is.mandatory.in.ldap": "false",
+        "always.read.value.from.ldap": "true",
+        "user.model.attribute": "postal_code",
         "read.only": "true"
       }
     }

@@ -17,6 +17,12 @@ mail: dikwan@example.org
 userPassword: admin
 mobile: 90457683
 departmentNumber: IT
+street: 8 Finance Street
+l: Central
+st: Hong Kong
+postalCode: 999077
+physicalDeliveryOfficeName: IFC Tower 1, Floor 20
+registeredAddress: 8 Finance Street, Central, Hong Kong
 
 dn: uid=zochen,ou=users,dc=org1,dc=local
 objectClass: inetOrgPerson
@@ -29,6 +35,12 @@ mail: zochen@example.org
 userPassword: admin
 mobile: 90457684
 departmentNumber: FA
+street: 8 Marina View
+l: Singapore
+st: Singapore
+postalCode: 018960
+physicalDeliveryOfficeName: Financial Centre, Level 9
+registeredAddress: 8 Marina View, Singapore
 
 dn: cn=developers,ou=groups,dc=org1,dc=local
 objectClass: groupOfNames
