@@ -136,6 +136,11 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
 }
 ```
 
+## Enable access token as opaque token
+Under Clients/ my-app/ Advanced
+Enable Always use lightweight access token
+
+
 ## Available Users
 
 ### Organization 1 (LDAP HK)
